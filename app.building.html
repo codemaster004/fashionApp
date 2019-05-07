@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>app bottom menu</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="menu_bottom.css">
+  <link rel="stylesheet" href="section_b.css">
+  <link rel="stylesheet" href="section_c.css">
+
+  <style>
+    /*
+    #2c2745
+    #212033
+    #e510e5
+    #669ef7
+    #5702ac
+    #53f572
+    #ffa700
+    */
+
+    /*
+    #f86070
+    #fa6b51
+    #fd6d42
+    
+    #f68b42
+    #f0a038
+    #fdc73f
+    
+    #79ef64
+    #58c875
+    #28b485
+    
+    #57caf2
+    #55a7e5
+    #4385d9
+    
+    #a485ef
+    #c884db
+    #f072b9
+    */
+
+    /*    MOJ TELEFON*/
+
+    .main_header {
+      width: 100vw;
+      height: 40vh;
+      padding: 20px 20px 0px 20px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 700;
+    }
+
+    .space {
+      width: 100%;
+      height: 250px;
+      margin-top: calc((40vh - 250px - 20px - 100px) / 2);
+    }
+
+    .section_header_icon_box {
+      height: 100%;
+      width: 250px;
+      display: inline-block;
+      background-color: #fff;
+      border-radius: 50%;
+      font-size: 150px;
+      line-height: 260px;
+    }
+
+    .section_header_bgc_top {
+      width: 100%;
+      height: 150px;
+      position: fixed;
+      left: 0;
+      top: calc(40vh - 150px);
+      z-index: 1300;
+    }
+
+    .section_header_bgc {
+      width: 700px;
+      height: 150px;
+      margin-top: calc(150px / 2);
+      border-radius: 500px;
+      background-color: #fff;
+      display: inline-block;
+      box-shadow: 0px 10px 90px 0px #bbbbbb;
+      font-size: 70px;
+      line-height: 150px;
+    }
+
+    .bottom_menu {
+      width: 100vw;
+      background-color: #ffffff;
+      padding: 30px 0 30px 0;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 1000;
+      box-shadow: 0px -10px 90px 0px #bbbbbb;
+    }
+
+    .bottom_menu-box {
+      height: 205px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 500;
+    }
+
+    .bottom_menu-button {
+      height: 205px;
+      width: 20vw;
+      float: left;
+      z-index: 600;
+    }
+
+    .slider_menu {
+      width: 100vw;
+      position: relative;
+      height: 145px;
+    }
+
+    .slider_menu-box {
+      width: 20vw;
+      height: 145px;
+      font-size: 90px;
+      font-weight: 100;
+      text-align: center;
+      line-height: 145px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 400;
+      color: #fff;
+    }
+
+    .active {
+      position: absolute;
+      top: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .chektagon {
+      width: 130px;
+      height: 145px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+      transform: rotate(0deg);
+      transition-timing-function: linear;
+    }
+
+    .chektagon_color {
+      width: 130px;
+      height: 145px;
+      -webkit-clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 20;
+    }
+
+    #id-B .main_section-content {
+      margin-bottom: 200px;
+    }
+
+    .slider_box {
+      width: 100%;
+      height: calc(70px + 650px);
+      clear: both;
+      margin-bottom: 200px;
+    }
+
+    .slider_box:nth-child(4) {
+      margin-bottom: 0;
+    }
+
+    .slider_box:nth-child(1) {
+      margin-top: 150px;
+    }
+
+    .silder_header {
+      width: 80vw;
+      height: 100px;
+      clear: both;
+      margin: 0 auto;
+    }
+
+    .silder_header_bgc {
+      width: 100%;
+      height: 100%;
+      -webkit-clip-path: polygon(50% -250%, 100% 50%, 50% 350%, 0% 50%);
+      font-size: 75px;
+      background-color: #f0a038;
+      line-height: 100px;
+    }
+
+    .previous_picture {
+      float: left;
+      height: 650px;
+      width: 110px;
+      position: relative;
+    }
+
+    .previous_icon {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #f0a038;
+      color: #fff;
+      font-size: 60px;
+      font-weight: bolder;
+      border-radius: 50%;
+      line-height: 90px;
+    }
+
+    .slider {
+      float: left;
+      width: calc(100vw - 20px * 2 - 110px * 2);
+      height: 650px;
+      position: relative;
+    }
+
+    .slide_box_place {
+      width: 420px;
+      height: 620px;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: 0.5s;
+    }
+
+    .slide_box_bgc {
+      width: 420px;
+      height: 620px;
+      -webkit-clip-path: polygon(50% 0, 250% 50%, 50% 100%, -150% 50%);
+      background-color: #f0a038;
+      padding: 10px;
+    }
+
+    .slide {
+      width: 400px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .slide_bgc {
+      background-color: #fff;
+      -webkit-clip-path: polygon(50% 0, 250% 50%, 50% 100%, -150% 50%);
+      position: relative;
+      width: 400px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .slide_img {
+      height: 600px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .next_picture {
+      float: left;
+      height: 650px;
+      width: 110px;
+      position: relative;
+    }
+
+    .next_icon {
+      width: 90px;
+      height: 90px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: #f0a038;
+      color: #fff;
+      font-size: 60px;
+      font-weight: bolder;
+      border-radius: 50%;
+      line-height: 90px;
+    }
+
+    #id-C {
+      opacity: 1;
+      z-index: 800;
+    }
+
+    #id-C .main_section-content {
+      min-height: 60vh;
+    }
+
+    .button_box {
+      width: 100%;
+      height: 310px;
+      margin-top: 150px;
+    }
+
+    .button_generator {
+      width: 40%;
+      height: 100px;
+      display: inline-block;
+      border: 0;
+      z-index: 900;
+      font-size: 50px;
+      letter-spacing: 6px;
+      font-weight: 300;
+      line-height: 200%;
+      overflow: hidden;
+      border-radius: 300px;
+    }
+
+    .button_generator_bgc {
+      width: 100%;
+      height: 100%;
+      -webkit-clip-path: polygon(50% -150%, 100% 50%, 50% 250%, 0% 50%);
+      background-color: #58c875;
+    }
+
+    .button_generator:active {
+      transform: translateY(5px);
+    }
+
+    .button_generator:nth-child(2),
+    .button_generator:nth-child(4) {
+      margin-left: 60px;
+    }
+
+    .button_generator:nth-child(3),
+    .button_generator:nth-child(4) {
+      margin-top: 50px;
+    }
+
+    .generate_place {
+      display: inline-block;
+      width: calc(280px * 3 + 90px);
+      height: calc(400px * 3 - 80px);
+    }
+
+    .clothe_box {
+      width: 270px;
+      height: 310px;
+      overflow: hidden;
+      float: left;
+      margin-left: 30px;
+      transition: 0.6s;
+    }
+
+    #accesorie_1 {
+      margin-left: calc(((250px * 3 + 90px) - 240px * 2) / 2);
+    }
+
+    [id^="layer_"] {
+      margin-top: -40px;
+    }
+
+    #bottoms {
+      margin-left: calc(((250px * 3 + 90px) - 240px * 2) / 2);
+      margin-top: -40px;
+    }
+
+    #shoes {
+      margin-top: -40px;
+    }
+
+    .clothe_box_bgc {
+      width: 100%;
+      height: 100%;
+      background-color: #58c875;
+      -webkit-clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+      padding: 10px;
+    }
+
+    .clothe_bgc_box {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .clothe_shape {
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      -webkit-clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+    }
+
+    .clothe_img {
+      width: 200px;
+      transition: 0.6s;
+    }
+
+    #accesorie_2 .clothe_img {
+      width: 190px;
+      transform: translateY(-10px);
+    }
+
+    .clothe_info_box {
+      width: 750px;
+      height: 850px;
+      overflow: hidden;
+      position: fixed;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.1);
+      transition: 0.7s linear;
+      opacity: 0;
+      z-index: 1500;
+    }
+
+    .clothe_info {
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      -webkit-clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+    }
+
+    #clothe_img_info {
+      height: 850px;
+      transform: rotate(-210deg);
+    }
+
+    /*    MOJ TELEFON*/
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      text-align: center;
+      color: #fff;
+    }
+
+    .main_section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100%;
+      float: left;
+      backface-visibility: hidden;
+      background-image: linear-gradient(to bottom, transparent 0%, transparent 40%, #f0f0f0 40%);
+      opacity: 0;
+      z-index: -1;
+    }
+
+    .main_section-content {
+      width: 100%;
+      min-height: 60%;
+      margin-top: 40vh;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    @keyframes get_out_left {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      98% {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      100% {
+        transform: translate(0);
+        opacity: 0;
+        z-index: -10;
+      }
+    }
+
+    @keyframes get_out_right {
+      0% {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      98% {
+        transform: translateX(-100%);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      100% {
+        transform: translate(0);
+        opacity: 0;
+        z-index: -10;
+      }
+    }
+
+    @keyframes get_in_left {
+      0% {
+        transform: translateX(0);
+        opacity: 0;
+        z-index: -10;
+      }
+
+      2% {
+        transform: translateX(-100%);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 800;
+      }
+    }
+
+    @keyframes get_in_right {
+      0% {
+        transform: translateX(0);
+        opacity: 0;
+        z-index: -10;
+      }
+
+      2% {
+        transform: translateX(100%);
+        opacity: 1;
+        z-index: 800;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 800;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="main_header" id="body_bgc">
+    <div class="space" id="header_space">
+      <div class="section_header_icon_box" id="icon_header">C</div>
+    </div>
+  </header>
+
+  <section class="main_section" id="id-A">
+    <div class="main_section-content">A</div>
+  </section>
+
+  <section class="main_section" id="id-B">
+    <div class="main_section-content">
+      <article class="slider_box">
+        <header class="silder_header">
+          <div class="silder_header_bgc">Koszule &amp; Koszulki</div>
+        </header>
+        <div class="previous_picture">
+          <div class="previous_icon" onclick="uporzatkuj_slajdy('top', 'prawa')">&lang;</div>
+        </div>
+        <div class="slider">
+          <div class="slide_box_place" id="clothe_id_top_0">
+            <div class="slide_box_bgc">
+              <div class="slide">
+                <div class="slide_bgc">
+                  <img src="../app_clothe/koszula.jpg" alt="koszula" class="slide_img">
+                  <div id="clothe_zaslona_top_0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide_box_place" id="clothe_id_top_1">
+            <div class="slide_box_bgc">
+              <div class="slide">
+                <div class="slide_bgc">
+                  <img src="../app_clothe/long-sleve.jpg" alt="long_slove" class="slide_img">
+                  <div id="clothe_zaslona_top_0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next_picture">
+          <div class="next_icon" onclick="uporzatkuj_slajdy('top', 'lewa')">&rang;</div>
+        </div>
+      </article>
+      <article class="slider_box">
+        <header class="silder_header">
+          <div class="silder_header_bgc">Spodnie &amp; Jeansy</div>
+        </header>
+        <div class="previous_picture">
+          <div class="previous_icon">&lang;</div>
+        </div>
+        <div class="slider">
+          <div class="slide_box_place" id="clothe_id_bottoms_0">
+            <div class="slide_box_bgc">
+              <div class="slide">
+                <div class="slide_bgc">
+                  <img src="../app_clothe/jeans.jpg" alt="jeansy" class="slide_img">
+                  <div id="clothe_zaslona_top_0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next_picture">
+          <div class="next_icon">&rang;</div>
+        </div>
+      </article>
+      <article class="slider_box">
+        <header class="silder_header">
+          <div class="silder_header_bgc">Buty &amp; Trampki</div>
+        </header>
+        <div class="previous_picture">
+          <div class="previous_icon">&lang;</div>
+        </div>
+        <div class="slider">
+          <div class="slide_box_place" id="clothe_id_shoes_0">
+            <div class="slide_box_bgc">
+              <div class="slide">
+                <div class="slide_bgc">
+                  <img src="../app_clothe/trampki.jpg" alt="" class="slide_img">
+                  <div id="clothe_zaslona_top_0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next_picture">
+          <div class="next_icon">&rang;</div>
+        </div>
+      </article>
+      <article class="slider_box">
+        <header class="silder_header">
+          <div class="silder_header_bgc">Akcesoria</div>
+        </header>
+        <div class="previous_picture">
+          <div class="previous_icon">&lang;</div>
+        </div>
+        <div class="slider">
+          <div class="slide_box_place" id="clothe_id_accesories_0">
+            <div class="slide_box_bgc">
+              <div class="slide">
+                <div class="slide_bgc">
+                  <img src="../app_clothe/zegarek.jpg" alt="zegarek" class="slide_img">
+                  <div id="clothe_zaslona_top_0"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="next_picture">
+          <div class="next_icon">&rang;</div>
+        </div>
+      </article>
+      <footer style="height: 200px;"></footer>
+
+    </div>
+  </section>
+
+  <section class="main_section" id="id-C">
+    <div class="main_section-content">
+      <div class="button_box">
+        <div class="button_generator">
+          <div class="button_generator_bgc">codzienny</div>
+        </div>
+        <div class="button_generator">
+          <div class="button_generator_bgc">sportowy</div>
+        </div>
+        <div class="button_generator">
+          <div class="button_generator_bgc">elegancki</div>
+        </div>
+        <div class="button_generator">
+          <div class="button_generator_bgc">imprezowy</div>
+        </div>
+      </div>
+      <div class="generate_place">
+        <div class="clothe_box" id="accesorie_1" onclick="pokarz_info(1)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="" alt="accesorie" class="clothe_img" id="img_id_1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="accesorie_2" onclick="pokarz_info(2)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="../app_clothe/zegarek.jpg" alt="akcesorie" class="clothe_img" id="img_id_2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="layer_1" onclick="pokarz_info(3)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="../app_clothe/long-sleve.jpg" alt="t-shirt" class="clothe_img" id="img_id_3"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="layer_2" onclick="pokarz_info(4)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="../app_clothe/koszula.jpg" alt="koszula" class="clothe_img" id="img_id_4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="layer_3" onclick="pokarz_info(5)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="" class="clothe_img" alt="odzierz wirzechnia" class="clothe_img" id="img_id_5"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="bottoms" onclick="pokarz_info(6)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="../app_clothe/jeans.jpg" alt="spodnie" class="clothe_img" id="img_id_6"></div>
+            </div>
+          </div>
+        </div>
+        <div class="clothe_box" id="shoes" onclick="pokarz_info(7)">
+          <div class="clothe_box_bgc">
+            <div class="clothe_bgc_box">
+              <div class="clothe_shape"><img src="../app_clothe/trampki.jpg" alt="buty" class="clothe_img" id="img_id_7"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clothe_info_box" id="clothe_info">
+      <div class="clothe_box_bgc">
+        <div class="clothe_bgc_box">
+          <div class="clothe_info" style="position: relative;">
+            <div onclick="hide_info()" style="font-size: 70px; height: 70px; width: 70px; color: #000; position: absolute; bottom: 200px; left: 0px;">X</div>
+            <img src="" id="clothe_img_info">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="main_section" id="id-D">
+    <div class="main_section-content">D</div>
+  </section>
+
+  <section class="main_section" id="id-E">
+    <div class="main_section-content">E</div>
+  </section>
+
+  <header>
+    <div class="section_header_bgc_top" id="main_header_position">
+      <div class="section_header_bgc" id="main_header"></div>
+    </div>
+  </header>
+
+  <div class="bottom_menu">
+    <div class="active">
+      <div class="chektagon" id="chektagon">
+        <div class="chektagon_color" id="chektagon_color"></div>
+      </div>
+    </div>
+    <div class="slider_menu" id="slider_menu">
+      <div class="slider_menu-box" id="slide_box-1">A</div>
+      <div class="slider_menu-box" id="slide_box-2">B</div>
+      <div class="slider_menu-box" id="slide_box-3">C</div>
+      <div class="slider_menu-box" id="slide_box-4">D</div>
+      <div class="slider_menu-box" id="slide_box-5">E</div>
+      <div class="slider_menu-box" id="slide_box-6">A</div>
+      <div class="slider_menu-box" id="slide_box-7">B</div>
+      <div class="slider_menu-box" id="slide_box-8">C</div>
+      <div class="slider_menu-box" id="slide_box-9">D</div>
+      <div class="slider_menu-box" id="slide_box-10">E</div>
+      <div class="slider_menu-box" id="slide_box-11">A</div>
+      <div class="slider_menu-box" id="slide_box-12">B</div>
+      <div class="slider_menu-box" id="slide_box-13">C</div>
+      <div class="slider_menu-box" id="slide_box-14">D</div>
+      <div class="slider_menu-box" id="slide_box-15">E</div>
+    </div>
+    <div class="bottom_menu-box">
+      <div class="bottom_menu-button" onclick="nowe_pozycje_ikonek(2, prawa)" id="unvisible_button-1"></div>
+      <div class="bottom_menu-button" onclick="nowe_pozycje_ikonek(1, prawa)" id="unvisible_button-2"></div>
+      <div class="bottom_menu-button" id="unvisible_button-3"></div>
+      <div class="bottom_menu-button" onclick="nowe_pozycje_ikonek(1, lewa)" id="unvisible_button-4"></div>
+      <div class="bottom_menu-button" onclick="nowe_pozycje_ikonek(2, lewa)" id="unvisible_button-5"></div>
+    </div>
+  </div>
+
+  <script>
+    let lewa = ["srodek", "prawa", "lewa"];
+    let prawa = ["prawa", "lewa", "srodek"];
+    let pozycje = ["lewa", "srodek", "prawa"];
+    let lista_literek_lewa = ["A", "B", "C", "D", "E"];
+    let lista_literek_prawa = ["A", "B", "C", "D", "E"];
+    let lista_literek_srodek = ["A", "B", "C", "D", "E"];
+    let lista_pozycji_ubran = ["top", "bottoms", "shoes", "accesories"];
+    let lista_kolorkow = ["#fa6b51", "#f0a038", "#58c875", "#55a7e5", "#c884db"];
+    let lista_sekcji = ["Zapisane Stroje", "Szafa", "Stylizator", "Rzeczy do Prania", "Kalendarz"];
+    let lista_id_lewa = ["slide_box-1", "slide_box-2", "slide_box-3", "slide_box-4", "slide_box-5"];
+    let lista_id_srodek = ["slide_box-6", "slide_box-7", "slide_box-8", "slide_box-9", "slide_box-10"];
+    let lista_id_prawa = ["slide_box-11", "slide_box-12", "slide_box-13", "slide_box-14", "slide_box-15"];
+    let lista_pudelek_z_ubraniami = ["accesorie_1", "accesorie_2", "layer_1", "layer_2", "layer_3", "bottoms", "shoes"];
+    let lista_kolorkow_bgc = ["#f86070, #fd6d42", "#f68b42, #fdc73f", "#79ef64, #28b485", "#57caf2, #4385d9", "#a485ef, #f072b9"];
+    let strona = "";
+    let rotacja = 0;
+    let ilosc_przemieszczen = 0;
+    let aktualny_ekran = "C";
+    let aktualny_numer_ekranu = 0;
+    let pozycja_ubrania = "";
+
+    let lista_slajdow_lewa = {}
+    lista_slajdow_lewa["top"] = []
+    lista_slajdow_lewa["bottoms"] = []
+    lista_slajdow_lewa["shoes"] = []
+    lista_slajdow_lewa["accesories"] = []
+
+    let lista_slajdow_srodek = {}
+    lista_slajdow_srodek["top"] = ["clothe_id_top_0"]
+    lista_slajdow_srodek["bottoms"] = ["clothe_id_bottoms_0"]
+    lista_slajdow_srodek["shoes"] = ["clothe_id_shoes_0"]
+    lista_slajdow_srodek["accesories"] = ["clothe_id_accesories_0"]
+
+    let lista_slajdow_prawa = {}
+    lista_slajdow_prawa["top"] = ["clothe_id_top_1"]
+    lista_slajdow_prawa["bottoms"] = []
+    lista_slajdow_prawa["shoes"] = []
+    lista_slajdow_prawa["accesories"] = []
+
+  </script>
+
+
+  <script>
+    function zmiana_ekranow() {
+      if (strona == lewa) {
+        if (ilosc_przemieszczen == 1) {
+          document.getElementById("id-" + lista_literek_srodek[1]).style.animation = "get_out_right 0.4s linear forwards";
+          document.getElementById("id-" + lista_literek_srodek[2]).style.animation = "get_in_right 0.4s linear forwards";
+        } else {
+          document.getElementById("id-" + lista_literek_srodek[0]).style.animation = "get_out_right 0.4s linear forwards";
+          document.getElementById("id-" + lista_literek_srodek[2]).style.animation = "get_in_right 0.4s linear forwards";
+        }
+      } else {
+        if (ilosc_przemieszczen == 1) {
+          document.getElementById("id-" + lista_literek_srodek[2]).style.animation = "get_in_left 0.4s linear forwards";
+          document.getElementById("id-" + lista_literek_srodek[3]).style.animation = "get_out_left 0.4s linear forwards";
+        } else {
+          document.getElementById("id-" + lista_literek_srodek[4]).style.animation = "get_out_left 0.4s linear forwards";
+          document.getElementById("id-" + lista_literek_srodek[2]).style.animation = "get_in_left 0.4s linear forwards";
+        }
+      }
+
+    }
+
+    function zmiana_tla() {
+      aktualny_ekran = lista_literek_srodek[2];
+      switch (aktualny_ekran) {
+        case "A":
+          aktualny_numer_ekranu = 1;
+          break;
+        case "B":
+          aktualny_numer_ekranu = 2;
+          break;
+        case "C":
+          aktualny_numer_ekranu = 3;
+          break;
+        case "D":
+          aktualny_numer_ekranu = 4;
+          break;
+        case "E":
+          aktualny_numer_ekranu = 5;
+          break;
+      }
+
+      document.getElementById("body_bgc").style.backgroundImage = "linear-gradient(to right, " + lista_kolorkow_bgc[aktualny_numer_ekranu - 1] + ")";
+      document.getElementById("chektagon_color").style.backgroundImage = "linear-gradient(to bottom, " + lista_kolorkow_bgc[aktualny_numer_ekranu - 1] + ")";
+      document.getElementById("main_header_position").style.backgroundImage = "linear-gradient(to right, " + lista_kolorkow_bgc[aktualny_numer_ekranu - 1] + ")";
+      document.getElementById("main_header").innerHTML = lista_sekcji[aktualny_numer_ekranu - 1];
+      document.getElementById("main_header").style.color = lista_kolorkow[aktualny_numer_ekranu - 1];
+      document.getElementById("icon_header").innerHTML = aktualny_ekran;
+      document.getElementById("icon_header").style.color = lista_kolorkow[aktualny_numer_ekranu - 1];
+    }
+
+    function main_header_ion_position() {
+      document.getElementById("header_space").style.marginTop = "calc((40vh - 250px - 20px - 100px) / 2 - " + scrollY + "px)";
+      if (Math.round(screen.height * 0.7) + 150 - scrollY <= 0) {
+        document.getElementById("main_header_position").style.top = 0;
+      } else {
+        document.getElementById("main_header_position").style.top = "calc((40vh - 150px) - " + scrollY + "px)";
+      }
+    }
+
+    function check_position() {
+      switch (aktualny_ekran) {
+        case "A":
+          if (scrollY > 0) {
+            scrollTo(0, 0);
+          }
+          break;
+        case "B":
+          if (scrollY > 3050) {
+            scrollTo(0, 3050);
+          }
+          break;
+        case "C":
+          if (scrollY > 600) {
+            scrollTo(0, 600);
+          }
+          break;
+        case "D":
+          if (scrollY > 0) {
+            scrollTo(0, 0);
+          }
+          break;
+        case "E":
+          if (scrollY > 0) {
+            scrollTo(0, 0);
+          }
+          break;
+      }
+    }
+
+  </script>
+
+
+  <script>
+    function uporzatkuj_slajdy(position, side) {
+      if (side == "lewa") {
+        if (lista_slajdow_prawa[position].length == 0) {
+          return
+        }
+        lista_slajdow_lewa[position].reverse();
+        lista_slajdow_lewa[position].push(lista_slajdow_srodek[position][0]);
+        lista_slajdow_lewa[position].reverse();
+        lista_slajdow_srodek[position].push(lista_slajdow_prawa[position][0]);
+        lista_slajdow_srodek[position].reverse();
+        lista_slajdow_srodek[position].pop();
+        lista_slajdow_prawa[position].reverse();
+        lista_slajdow_prawa[position].pop();
+        lista_slajdow_prawa[position].reverse();
+      } else {
+        if (lista_slajdow_lewa[position].length == 0) {
+          return
+        }
+        lista_slajdow_srodek[position].push(lista_slajdow_lewa[position][0]);
+        lista_slajdow_lewa[position].reverse();
+        lista_slajdow_lewa[position].pop();
+        lista_slajdow_prawa[position].reverse();
+        lista_slajdow_prawa[position].push(lista_slajdow_srodek[position][0]);
+        lista_slajdow_prawa[position].reverse();
+        lista_slajdow_srodek[position].reverse();
+        lista_slajdow_srodek[position].pop();
+      }
+      setTimeout(przemiesc_slajdy, 10);
+      pozycja_ubrania = position;
+      return
+    }
+
+    function przemiesc_slajdy() {
+      if (pozycja_ubrania != "") {
+        for (let i = 0; i < lista_slajdow_lewa[pozycja_ubrania].length; i++) {
+          document.getElementById(lista_slajdow_lewa[pozycja_ubrania][i]).style.transform = "translateX(calc(-50% - 150px)) scale(0.9)";
+          document.getElementById(lista_slajdow_lewa[pozycja_ubrania][i]).style.opacity = "0.4";
+          document.getElementById(lista_slajdow_lewa[pozycja_ubrania][i]).style.zIndex = "700";
+          if (i >= 1) {
+            document.getElementById(lista_slajdow_lewa[pozycja_ubrania][i]).style.opacity = "0";
+          }
+        }
+      }
+      for (let i = 0; i < lista_pozycji_ubran.length; i++) {
+        document.getElementById(lista_slajdow_srodek[lista_pozycji_ubran[i]][0]).style.transform = "translateX(calc(-50%)) scale(1)";
+        document.getElementById(lista_slajdow_srodek[lista_pozycji_ubran[i]][0]).style.opacity = "1";
+        document.getElementById(lista_slajdow_srodek[lista_pozycji_ubran[i]][0]).style.zIndex = "750";
+      }
+      if (pozycja_ubrania != "") {
+        for (let i = 0; i < lista_slajdow_prawa[pozycja_ubrania].length; i++) {
+          document.getElementById(lista_slajdow_prawa[pozycja_ubrania][i]).style.transform = "translateX(calc(-50% + 150px)) scale(0.9)";
+          document.getElementById(lista_slajdow_prawa[pozycja_ubrania][i]).style.opacity = "0.4";
+          document.getElementById(lista_slajdow_prawa[pozycja_ubrania][i]).style.zIndex = "700";
+          if (i >= 1) {
+            document.getElementById(lista_slajdow_prawa[pozycja_ubrania][i]).style.opacity = "0";
+          }
+        }
+      } else {
+        for (let j = 0; j < lista_pozycji_ubran.length; j++) {
+          for (let i = 0; i < lista_slajdow_prawa[lista_pozycji_ubran[j]].length; i++) {
+            document.getElementById(lista_slajdow_prawa[lista_pozycji_ubran[j]][i]).style.transform = "translateX(calc(-50% + 150px)) scale(0.9)";
+            document.getElementById(lista_slajdow_prawa[lista_pozycji_ubran[j]][i]).style.opacity = "0.4";
+            document.getElementById(lista_slajdow_prawa[lista_pozycji_ubran[j]][i]).style.zIndex = "700";
+            if (i >= 1) {
+              document.getElementById(lista_slajdow_prawa[lista_pozycji_ubran[j]][i]).style.opacity = "0";
+            }
+          }
+        }
+      }
+      return
+    }
+
+  </script>
+
+
+  <script>
+    function pokarz_info(number_id) {
+      scrollTo(0, 500);
+      document.getElementById("clothe_info").style.transform = "translate(-50%, -45%) rotate(-150deg) scale(1.1)";
+      document.getElementById("clothe_info").style.opacity = "1";
+      for (let i = 0; i < lista_pudelek_z_ubraniami.length; i++) {
+        document.getElementById(lista_pudelek_z_ubraniami[i]).style.opacity = "0";
+      }
+      document.getElementById("clothe_img_info").src = document.getElementById("img_id_" + number_id).src;
+      addEventListener("scroll", info_position);
+    }
+
+    function hide_info() {
+      document.getElementById("clothe_info").style.transform = "translate(-50%, -50%) rotate(0) scale(0.1)";
+      document.getElementById("clothe_info").style.opacity = "0";
+      for (let i = 0; i < lista_pudelek_z_ubraniami.length; i++) {
+        document.getElementById(lista_pudelek_z_ubraniami[i]).style.opacity = "1";
+      }
+      removeEventListener("scroll", info_position);
+    }
+
+    function info_position() {
+      scrollTo(0, 500);
+    }
+
+  </script>
+
+  <script>
+    function zmiana_ikonek_menu() {
+      for (let x = 0; x < lista_id_lewa.length; x++) {
+        document.getElementById(lista_id_lewa[x]).style.transform = "translateX(-20vw)";
+        document.getElementById(lista_id_lewa[x]).style.opacity = 0;
+      }
+
+      for (let y = 0; y < lista_id_srodek.length; y++) {
+        document.getElementById(lista_id_srodek[y]).style.transform = "translateX(" + (y * 20) + "vw)";
+        document.getElementById(lista_id_srodek[y]).style.opacity = 1;
+      }
+
+      for (let z = 0; z < lista_id_prawa.length; z++) {
+        document.getElementById(lista_id_prawa[z]).style.transform = "translateX(100vw)";
+        document.getElementById(lista_id_prawa[z]).style.opacity = 0;
+      }
+
+      document.getElementById("chektagon").style.transform = "rotate(" + rotacja + "deg)";
+
+      return
+    }
+
+    function nowe_pozycje_ikonek(liczba_rzeczy_przemieszczanych, kierunek) {
+      scrollTo(0, 0);
+      strona = kierunek
+      ilosc_przemieszczen = liczba_rzeczy_przemieszczanych;
+      for (let i = 0; i < 15; i++) {
+        document.getElementById("slide_box-" + (i + 1)).style.transition = "0.4s linear";
+        document.getElementById("chektagon").style.transition = "0.4s linear";
+      }
+      if (liczba_rzeczy_przemieszczanych == 2) {
+        if (strona == prawa) {
+          rotacja += -120;
+        } else {
+          rotacja += 120;
+        }
+      } else {
+        if (strona == prawa) {
+          rotacja += -60;
+        } else {
+          rotacja += 60;
+        }
+      }
+      for (let j = 0; j < liczba_rzeczy_przemieszczanych; j++) {
+        if (kierunek == prawa) {
+          for (let i = 0; i < 3; i++) {
+            eval("lista_id_" + pozycje[i]).reverse();
+            eval("lista_literek_" + pozycje[i]).reverse();
+          }
+        }
+        for (let i = 0; i < pozycje.length; i++) {
+          eval("lista_id_" + pozycje[i]).push(eval("lista_id_" + kierunek[i] + "[" + 0 + "]"));
+          eval("lista_literek_" + pozycje[i]).push(eval("lista_literek_" + kierunek[i] + "[" + 0 + "]"));
+        }
+        for (let i = 0; i < 3; i++) {
+          eval("lista_id_" + pozycje[i]).reverse();
+          eval("lista_literek_" + pozycje[i]).reverse();
+          eval("lista_id_" + pozycje[i]).pop();
+          eval("lista_literek_" + pozycje[i]).pop();
+        }
+        if (kierunek == lewa) {
+          for (let i = 0; i < 3; i++) {
+            eval("lista_id_" + pozycje[i]).reverse();
+            eval("lista_literek_" + pozycje[i]).reverse();
+          }
+        }
+      }
+      setTimeout(zmiana_tla, 100);
+      setTimeout(zmiana_ekranow, 100);
+      setTimeout(zmiana_ikonek_menu, 100);
+      setTimeout(nowe_kolorki_ikonek, 100);
+      return
+    }
+
+    function nowe_kolorki_ikonek() {
+      for (let i = 0; i < 15; i++) {
+        document.getElementById("slide_box-" + (i + 1)).style.color = lista_kolorkow[aktualny_numer_ekranu - 1];
+      }
+      document.getElementById(lista_id_srodek[2]).style.color = "#ffffff";
+    }
+
+  </script>
+
+
+  <script>
+    zmiana_tla()
+    przemiesc_slajdy()
+    zmiana_ikonek_menu()
+    nowe_kolorki_ikonek()
+
+    addEventListener("scroll", check_position);
+    addEventListener("scroll", main_header_ion_position)
+
+  </script>
+
+</body>
+
+</html>

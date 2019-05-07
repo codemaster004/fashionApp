@@ -1,0 +1,126 @@
+#id-B .main_section-content {
+  margin-bottom: 200px;
+}
+
+.slider_box {
+  width: 100%;
+  height: calc(70px + 650px);
+  clear: both;
+  margin-bottom: 200px;
+}
+
+.slider_box:nth-child(4) {
+  margin-bottom: 0;
+}
+
+.slider_box:nth-child(1) {
+  margin-top: 150px;
+}
+
+.silder_header {
+  width: 80vw;
+  height: 100px;
+  clear: both;
+  margin: 0 auto;
+}
+
+.silder_header_bgc {
+  width: 100%;
+  height: 100%;
+  -webkit-clip-path: polygon(50% -250%, 100% 50%, 50% 350%, 0% 50%);
+  font-size: 75px;
+  background-color: #f0a038;
+  line-height: 100px;
+}
+
+.previous_picture {
+  float: left;
+  height: 650px;
+  width: 110px;
+  position: relative;
+}
+
+.previous_icon {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background-color: #f0a038;
+  color: #fff;
+  font-size: 60px;
+  font-weight: bolder;
+  border-radius: 50%;
+  line-height: 90px;
+}
+
+.slider {
+  float: left;
+  width: calc(100vw - 20px * 2 - 110px * 2);
+  height: 650px;
+  position: relative;
+}
+
+.slide_box_place {
+  width: 420px;
+  height: 620px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+.slide_box_bgc {
+  width: 420px;
+  height: 620px;
+  -webkit-clip-path: polygon(50% 0, 250% 50%, 50% 100%, -150% 50%);
+  background-color: #f0a038;
+  padding: 10px;
+}
+
+.slide {
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.slide_bgc {
+  background-color: #fff;
+  -webkit-clip-path: polygon(50% 0, 250% 50%, 50% 100%, -150% 50%);
+  position: relative;
+  width: 400px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.slide_img {
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.next_picture {
+  float: left;
+  height: 650px;
+  width: 110px;
+  position: relative;
+}
+
+.next_icon {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #f0a038;
+  color: #fff;
+  font-size: 60px;
+  font-weight: bolder;
+  border-radius: 50%;
+  line-height: 90px;
+}

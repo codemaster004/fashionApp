@@ -1,0 +1,73 @@
+.bottom_menu {
+  width: 100vw;
+  background-color: #ffffff;
+  padding: 30px 0 30px 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0px -10px 90px 0px #bbbbbb;
+}
+
+.bottom_menu-box {
+  height: 205px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 500;
+}
+
+.bottom_menu-button {
+  height: 205px;
+  width: 20vw;
+  float: left;
+  z-index: 600;
+}
+
+.slider_menu {
+  width: 100vw;
+  position: relative;
+  height: 145px;
+}
+
+.slider_menu-box {
+  width: 20vw;
+  height: 145px;
+  font-size: 90px;
+  font-weight: 100;
+  text-align: center;
+  line-height: 145px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 400;
+  color: #fff;
+}
+
+.active {
+  position: absolute;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.chektagon {
+  width: 130px;
+  height: 145px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  transform: rotate(0deg);
+  transition-timing-function: linear;
+}
+
+.chektagon_color {
+  width: 130px;
+  height: 145px;
+  -webkit-clip-path: polygon(50% 0, 150% 50%, 50% 100%, -50% 50%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
